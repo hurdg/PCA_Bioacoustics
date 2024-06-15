@@ -26,7 +26,7 @@ from wavegan import WaveGANGenerator, WaveGANDiscriminator
   Trains a WaveGAN
 """
 def train(fps, args):
-  with tf.name_scope('loader'):
+  with tf.compat.v1.name_scope('loader'):
     x = loader.decode_extract_and_batch(
         fps,
         batch_size=args.train_batch_size,
@@ -46,7 +46,7 @@ def train(fps, args):
         prefetch_gpu_num=args.data_prefetch_gpu_num)[:, :, 0]
 
   # Make z vector
-  z = tf.compat.v1.random_uniform([args.train_batch_size, args.wavegan_latent_dim], -1., 1., dtype=tf.float32)
+  z = tf.compat.v1.random_uniform([args.train_batch_size, args.wavegan_latent_dim], -1., 1., dtype=tf.compat.v1.float32)
 
   # Make generator
   with tf.compat.v1.variable_scope('G'):
@@ -68,14 +68,14 @@ def train(fps, args):
   print('Total params: {} ({:.2f} MB)'.format(nparams, (float(nparams) * 4) / (1024 * 1024)))
 
   # Summarize
-  tf.summary.audio('x', x, args.data_sample_rate)
-  tf.summary.audio('G_z', G_z, args.data_sample_rate)
-  G_z_rms = tf.sqrt(tf.reduce_mean(tf.square(G_z[:, :, 0]), axis=1))
-  x_rms = tf.sqrt(tf.reduce_mean(tf.square(x[:, :, 0]), axis=1))
-  tf.summary.histogram('x_rms_batch', x_rms)
-  tf.summary.histogram('G_z_rms_batch', G_z_rms)
-  tf.summary.scalar('x_rms', tf.reduce_mean(x_rms))
-  tf.summary.scalar('G_z_rms', tf.reduce_mean(G_z_rms))
+  tf.compat.v1.summary.audio('x', x, args.data_sample_rate)
+  tf.compat.v1.summary.audio('G_z', G_z, args.data_sample_rate)
+  G_z_rms = tf.compat.v1.sqrt(tf.compat.v1.reduce_mean(tf.square(G_z[:, :, 0]), axis=1))
+  x_rms = tf.compat.v1.sqrt(tf.compat.v1.reduce_mean(tf.square(x[:, :, 0]), axis=1))
+  tf.compat.v1.summary.histogram('x_rms_batch', x_rms)
+  tf.compat.v1.summary.histogram('G_z_rms_batch', G_z_rms)
+  tf.compat.v1.summary.scalar('x_rms', tf.compat.v1.reduce_mean(x_rms))
+  tf.compat.v1.summary.scalar('G_z_rms', tf.compat.v1.reduce_mean(G_z_rms))
 
   # Make real discriminator
   with tf.compat.v1.name_scope('D_x'), tf.compat.v1.variable_scope('D'):
@@ -101,52 +101,52 @@ def train(fps, args):
   # Create loss
   D_clip_weights = None
   if args.wavegan_loss == 'dcgan':
-    fake = tf.zeros([args.train_batch_size], dtype=tf.float32)
-    real = tf.ones([args.train_batch_size], dtype=tf.float32)
+    fake = tf.compat.v1.zeros([args.train_batch_size], dtype=tf.compat.v1.float32)
+    real = tf.compat.v1.ones([args.train_batch_size], dtype=tf.compat.v1.float32)
 
-    G_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(
+    G_loss = tf.compat.v1.reduce_mean(tf.compat.v1.nn.sigmoid_cross_entropy_with_logits(
       logits=D_G_z,
       labels=real
     ))
 
-    D_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(
+    D_loss = tf.compat.v1.reduce_mean(tf.compat.v1.nn.sigmoid_cross_entropy_with_logits(
       logits=D_G_z,
       labels=fake
     ))
-    D_loss += tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(
+    D_loss += tf.compat.v1.reduce_mean(tf.compat.v1.nn.sigmoid_cross_entropy_with_logits(
       logits=D_x,
       labels=real
     ))
 
     D_loss /= 2.
   elif args.wavegan_loss == 'lsgan':
-    G_loss = tf.reduce_mean((D_G_z - 1.) ** 2)
-    D_loss = tf.reduce_mean((D_x - 1.) ** 2)
-    D_loss += tf.reduce_mean(D_G_z ** 2)
+    G_loss = tf.compat.v1.reduce_mean((D_G_z - 1.) ** 2)
+    D_loss = tf.compat.v1.reduce_mean((D_x - 1.) ** 2)
+    D_loss += tf.compat.v1.reduce_mean(D_G_z ** 2)
     D_loss /= 2.
   elif args.wavegan_loss == 'wgan':
-    G_loss = -tf.reduce_mean(D_G_z)
-    D_loss = tf.reduce_mean(D_G_z) - tf.reduce_mean(D_x)
+    G_loss = -tf.compat.v1.reduce_mean(D_G_z)
+    D_loss = tf.compat.v1.reduce_mean(D_G_z) - tf.compat.v1.reduce_mean(D_x)
 
-    with tf.name_scope('D_clip_weights'):
+    with tf.compat.v1.name_scope('D_clip_weights'):
       clip_ops = []
       for var in D_vars:
         clip_bounds = [-.01, .01]
         clip_ops.append(
-          tf.assign(
+          tf.compat.v1.assign(
             var,
-            tf.clip_by_value(var, clip_bounds[0], clip_bounds[1])
+            tf.compat.v1.clip_by_value(var, clip_bounds[0], clip_bounds[1])
           )
         )
-      D_clip_weights = tf.group(*clip_ops)
+      D_clip_weights = tf.compat.v1.group(*clip_ops)
   elif args.wavegan_loss == 'wgan-gp':
-    G_loss = -tf.reduce_mean(D_G_z)
-    D_loss = tf.reduce_mean(D_G_z) - tf.reduce_mean(D_x)
+    G_loss = -tf.compat.v1.reduce_mean(D_G_z)
+    D_loss = tf.compat.v1.reduce_mean(D_G_z) - tf.compat.v1.reduce_mean(D_x)
 
     alpha = tf.compat.v1.random_uniform(shape=[args.train_batch_size, 1, 1], minval=0., maxval=1.)
     differences = G_z - x
     interpolates = x + (alpha * differences)
-    with tf.name_scope('D_interp'), tf.compat.v1.variable_scope('D', reuse=True):
+    with tf.compat.v1.name_scope('D_interp'), tf.compat.v1.variable_scope('D', reuse=True):
       D_interp = WaveGANDiscriminator(interpolates, **args.wavegan_d_kwargs)
 
     LAMBDA = 10
@@ -157,8 +157,8 @@ def train(fps, args):
   else:
     raise NotImplementedError()
 
-  tf.summary.scalar('G_loss', G_loss)
-  tf.summary.scalar('D_loss', D_loss)
+  tf.compat.v1.summary.scalar('G_loss', G_loss)
+  tf.compat.v1.summary.scalar('D_loss', D_loss)
 
   # Create (recommended) optimizer
   if args.wavegan_loss == 'dcgan':
@@ -249,31 +249,31 @@ def infer(args):
     os.makedirs(infer_dir)
 
   # Subgraph that generates latent vectors
-  samp_z_n = tf.compat.v1.placeholder(tf.int32, [], name='samp_z_n')
-  samp_z = tf.compat.v1.random_uniform([samp_z_n, args.wavegan_latent_dim], -1.0, 1.0, dtype=tf.float32, name='samp_z')
+  samp_z_n = tf.compat.v1.placeholder(tf.compat.v1.int32, [], name='samp_z_n')
+  samp_z = tf.compat.v1.random_uniform([samp_z_n, args.wavegan_latent_dim], -1.0, 1.0, dtype=tf.compat.v1.float32, name='samp_z')
 
   # Input zo
-  z = tf.compat.v1.placeholder(tf.float32, [None, args.wavegan_latent_dim], name='z')
-  flat_pad = tf.compat.v1.placeholder(tf.int32, [], name='flat_pad')
+  z = tf.compat.v1.placeholder(tf.compat.v1.float32, [None, args.wavegan_latent_dim], name='z')
+  flat_pad = tf.compat.v1.placeholder(tf.compat.v1.int32, [], name='flat_pad')
 
   # Execute generator
   with tf.compat.v1.variable_scope('G'):
     G_z = WaveGANGenerator(z, train=False, **args.wavegan_g_kwargs)
     if args.wavegan_genr_pp:
       with tf.compat.v1.variable_scope('pp_filt'):
-        G_z = tf.layers.conv1d(G_z, 1, args.wavegan_genr_pp_len, use_bias=False, padding='same')
-  G_z = tf.identity(G_z, name='G_z')
+        G_z = tf.compat.v1.layers.conv1d(G_z, 1, args.wavegan_genr_pp_len, use_bias=False, padding='same')
+  G_z = tf.compat.v1.identity(G_z, name='G_z')
 
   # Flatten batch
   nch = int(G_z.get_shape()[-1])
-  G_z_padded = tf.pad(G_z, [[0, 0], [0, flat_pad], [0, 0]])
-  G_z_flat = tf.reshape(G_z_padded, [-1, nch], name='G_z_flat')
+  G_z_padded = tf.compat.v1.pad(G_z, [[0, 0], [0, flat_pad], [0, 0]])
+  G_z_flat = tf.compat.v1.reshape(G_z_padded, [-1, nch], name='G_z_flat')
 
   # Encode to int16
   def float_to_int16(x, name=None):
     x_int16 = x * 32767.
-    x_int16 = tf.clip_by_value(x_int16, -32767., 32767.)
-    x_int16 = tf.cast(x_int16, tf.int16, name=name)
+    x_int16 = tf.compat.v1.clip_by_value(x_int16, -32767., 32767.)
+    x_int16 = tf.compat.v1.cast(x_int16, tf.compat.v1.int16, name=name)
     return x_int16
   G_z_int16 = float_to_int16(G_z, name='G_z_int16')
   G_z_flat_int16 = float_to_int16(G_z_flat, name='G_z_flat_int16')
@@ -313,8 +313,8 @@ def preview(args):
 
   # Load graph
   infer_metagraph_fp = os.path.join(args.train_dir, 'infer', 'infer.meta')
-  graph = tf.get_default_graph()
-  saver = tf.train.import_meta_graph(infer_metagraph_fp)
+  graph = tf.compat.v1.get_default_graph()
+  saver = tf.compat.v1.train.import_meta_graph(infer_metagraph_fp)
 
   # Generate or restore z_i and z_o
   z_fp = os.path.join(preview_dir, 'z.pkl')
@@ -327,7 +327,8 @@ def preview(args):
     samp_feeds[graph.get_tensor_by_name('samp_z_n:0')] = args.preview_n
     samp_fetches = {}
     samp_fetches['zs'] = graph.get_tensor_by_name('samp_z:0')
-    with tf.Session() as sess:
+    with tf.compat.v1.Session() as sess:
+      config=tf.compat.v1.ConfigProto( allow_soft_placement=True, log_device_placement=True),
       _samp_fetches = sess.run(samp_fetches, samp_feeds)
     _zs = _samp_fetches['zs']
 
@@ -340,7 +341,7 @@ def preview(args):
   feeds[graph.get_tensor_by_name('z:0')] = _zs
   feeds[graph.get_tensor_by_name('flat_pad:0')] = int(args.data_sample_rate / 2)
   fetches = {}
-  fetches['step'] = tf.train.get_or_create_global_step()
+  fetches['step'] = tf.compat.v1.train.get_or_create_global_step()
   fetches['G_z'] = graph.get_tensor_by_name('G_z:0')
   fetches['G_z_flat_int16'] = graph.get_tensor_by_name('G_z_flat_int16:0')
   if args.wavegan_genr_pp:
@@ -349,26 +350,27 @@ def preview(args):
   # Summarize
   G_z = graph.get_tensor_by_name('G_z_flat:0')
   summaries = [
-      tf.summary.audio('preview', tf.expand_dims(G_z, axis=0), args.data_sample_rate, max_outputs=1)
+      tf.compat.v1.summary.audio('preview', tf.compat.v1.expand_dims(G_z, axis=0), args.data_sample_rate, max_outputs=1)
   ]
-  fetches['summaries'] = tf.summary.merge(summaries)
-  summary_writer = tf.summary.FileWriter(preview_dir)
+  fetches['summaries'] = tf.compat.v1.summary.merge(summaries)
+  summary_writer = tf.compat.v1.summary.FileWriter(preview_dir)
 
   # PP Summarize
   if args.wavegan_genr_pp:
-    pp_fp = tf.placeholder(tf.string, [])
-    pp_bin = tf.read_file(pp_fp)
-    pp_png = tf.image.decode_png(pp_bin)
-    pp_summary = tf.summary.image('pp_filt', tf.expand_dims(pp_png, axis=0))
+    pp_fp = tf.compat.v1.placeholder(tf.compat.v1.string, [])
+    pp_bin = tf.compat.v1.read_file(pp_fp)
+    pp_png = tf.compat.v1.image.decode_png(pp_bin)
+    pp_summary = tf.compat.v1.summary.image('pp_filt', tf.compat.v1.expand_dims(pp_png, axis=0))
 
   # Loop, waiting for checkpoints
   ckpt_fp = None
   while True:
-    latest_ckpt_fp = tf.train.latest_checkpoint(args.train_dir)
+    latest_ckpt_fp = tf.compat.v1.train.latest_checkpoint(args.train_dir)
     if latest_ckpt_fp != ckpt_fp:
       print('Preview: {}'.format(latest_ckpt_fp))
 
-      with tf.Session() as sess:
+      with tf.compat.v1.Session() as sess:
+        config=tf.compat.v1.ConfigProto( allow_soft_placement=True, log_device_placement=True),
         saver.restore(sess, latest_ckpt_fp)
 
         _fetches = sess.run(fetches, feeds)
@@ -401,7 +403,8 @@ def preview(args):
         _pp_fp = os.path.join(preview_dir, '{}_ppfilt.png'.format(str(_step).zfill(8)))
         plt.savefig(_pp_fp)
 
-        with tf.Session() as sess:
+        with tf.compat.v1.Session() as sess:
+          config=tf.compat.v1.ConfigProto( allow_soft_placement=True, log_device_placement=True),
           _summary = sess.run(pp_summary, {pp_fp: _pp_fp})
           summary_writer.add_summary(_summary, _step)
 
@@ -421,11 +424,11 @@ def incept(args):
     os.makedirs(incept_dir)
 
   # Load GAN graph
-  gan_graph = tf.Graph()
+  gan_graph = tf.compat.v1.Graph()
   with gan_graph.as_default():
     infer_metagraph_fp = os.path.join(args.train_dir, 'infer', 'infer.meta')
-    gan_saver = tf.train.import_meta_graph(infer_metagraph_fp)
-    score_saver = tf.train.Saver(max_to_keep=1)
+    gan_saver = tf.compat.v1.train.import_meta_graph(infer_metagraph_fp)
+    score_saver = tf.compat.v1.train.Saver(max_to_keep=1)
   gan_z = gan_graph.get_tensor_by_name('z:0')
   gan_G_z = gan_graph.get_tensor_by_name('G_z:0')[:, :, 0]
   gan_step = gan_graph.get_tensor_by_name('global_step:0')
@@ -438,41 +441,43 @@ def incept(args):
   else:
     gan_samp_z_n = gan_graph.get_tensor_by_name('samp_z_n:0')
     gan_samp_z = gan_graph.get_tensor_by_name('samp_z:0')
-    with tf.Session(graph=gan_graph) as sess:
+    with tf.compat.v1.Session(graph=gan_graph) as sess:
+      config=tf.compat.v1.ConfigProto( allow_soft_placement=True, log_device_placement=True),
       _zs = sess.run(gan_samp_z, {gan_samp_z_n: args.incept_n})
     with open(z_fp, 'wb') as f:
       pickle.dump(_zs, f)
 
   # Load classifier graph
-  incept_graph = tf.Graph()
+  incept_graph = tf.compat.v1.Graph()
   with incept_graph.as_default():
-    incept_saver = tf.train.import_meta_graph(args.incept_metagraph_fp)
+    incept_saver = tf.compat.v1.train.import_meta_graph(args.incept_metagraph_fp)
   incept_x = incept_graph.get_tensor_by_name('x:0')
   incept_preds = incept_graph.get_tensor_by_name('scores:0')
-  incept_sess = tf.Session(graph=incept_graph)
+  incept_sess = tf.compat.v1.Session(graph=incept_graph)
   incept_saver.restore(incept_sess, args.incept_ckpt_fp)
 
   # Create summaries
-  summary_graph = tf.Graph()
+  summary_graph = tf.compat.v1.Graph()
   with summary_graph.as_default():
-    incept_mean = tf.placeholder(tf.float32, [])
-    incept_std = tf.placeholder(tf.float32, [])
+    incept_mean = tf.compat.v1.placeholder(tf.compat.v1.float32, [])
+    incept_std = tf.compat.v1.placeholder(tf.compat.v1.float32, [])
     summaries = [
-        tf.summary.scalar('incept_mean', incept_mean),
-        tf.summary.scalar('incept_std', incept_std)
+        tf.compat.v1.summary.scalar('incept_mean', incept_mean),
+        tf.compat.v1.summary.scalar('incept_std', incept_std)
     ]
-    summaries = tf.summary.merge(summaries)
-  summary_writer = tf.summary.FileWriter(incept_dir)
+    summaries = tf.compat.v1.summary.merge(summaries)
+  summary_writer = tf.compat.v1.summary.FileWriter(incept_dir)
 
   # Loop, waiting for checkpoints
   ckpt_fp = None
   _best_score = 0.
   while True:
-    latest_ckpt_fp = tf.train.latest_checkpoint(args.train_dir)
+    latest_ckpt_fp = tf.compat.v1.train.latest_checkpoint(args.train_dir)
     if latest_ckpt_fp != ckpt_fp:
       print('Incept: {}'.format(latest_ckpt_fp))
 
-      sess = tf.Session(graph=gan_graph)
+      sess = tf.compat.v1.Session(graph=gan_graph,
+      config=tf.compat.v1.ConfigProto( allow_soft_placement=True, log_device_placement=True))
 
       gan_saver.restore(sess, latest_ckpt_fp)
 
@@ -500,7 +505,8 @@ def incept(args):
       _incept_mean, _incept_std = np.mean(_incept_scores), np.std(_incept_scores)
 
       # Summarize
-      with tf.Session(graph=summary_graph) as summary_sess:
+      with tf.compat.v1.Session(graph=summary_graph) as summary_sess:
+        config=tf.compat.v1.ConfigProto( allow_soft_placement=True, log_device_placement=True),
         _summaries = summary_sess.run(summaries, {incept_mean: _incept_mean, incept_std: _incept_std})
       summary_writer.add_summary(_summaries, _step)
 

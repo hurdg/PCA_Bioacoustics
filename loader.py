@@ -134,7 +134,7 @@ def decode_extract_and_batch(
     audio = tf.compat.v1.py_func(
         _decode_audio_closure,
         [fp],
-        tf.float32,
+        tf.compat.v1.float32,
         stateful=False)
     audio.set_shape([None, 1, decode_num_channels])
 
@@ -177,7 +177,7 @@ def decode_extract_and_batch(
 
   def _slice_dataset_wrapper(audio):
     audio_slices = _slice(audio)
-    return tf.data.Dataset.from_tensor_slices(audio_slices)
+    return tf.compat.v1.data.Dataset.from_tensor_slices(audio_slices)
 
   # Extract parallel sliceuences from both audio and features
   dataset = dataset.flat_map(_slice_dataset_wrapper)
@@ -194,7 +194,7 @@ def decode_extract_and_batch(
     dataset = dataset.prefetch(prefetch_size)
     if prefetch_gpu_num is not None and prefetch_gpu_num >= 0:
       dataset = dataset.apply(
-          tf.data.experimental.prefetch_to_device(
+          tf.compat.v1.data.experimental.prefetch_to_device(
             '/device:GPU:{}'.format(prefetch_gpu_num)))
 
   # Get tensors
