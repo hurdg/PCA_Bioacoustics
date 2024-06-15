@@ -1,7 +1,11 @@
 from scipy.io.wavfile import read as wavread
 import numpy as np
 
-import tensorflow as tf
+import tensorflow as tf # ALSO CHANGED LINES 116,134,163,164,159 (.compat.v1.)
+####################################
+#import tensorflow.compat.v1 as tf
+#tf.disable_v2_behavior()
+####################################
 
 import sys
 
@@ -109,7 +113,7 @@ def decode_extract_and_batch(
       audio: [batch_size, slice_len, 1, nch]
   """
   # Create dataset of filepaths
-  dataset = tf.data.Dataset.from_tensor_slices(fps)
+  dataset = tf.compat.v1.data.Dataset.from_tensor_slices(fps)
 
   # Shuffle all filepaths every epoch
   if shuffle:
@@ -127,7 +131,7 @@ def decode_extract_and_batch(
       normalize=decode_normalize,
       fast_wav=decode_fast_wav)
 
-    audio = tf.py_func(
+    audio = tf.compat.v1.py_func(
         _decode_audio_closure,
         [fp],
         tf.float32,
@@ -152,11 +156,12 @@ def decode_extract_and_batch(
 
     # Randomize starting phase:
     if slice_randomize_offset:
-      start = tf.random_uniform([], maxval=slice_len, dtype=tf.int32)
+      start = tf.compat.v1.random_uniform([], maxval=slice_len, dtype=tf.int32)
       audio = audio[start:]
 
     # Extract sliceuences
-    audio_slices = tf.contrib.signal.frame(
+    #audio_slices = tf.contrib.signal.frame(
+    audio_slices = tf.signal.frame(
         audio,
         slice_len,
         slice_hop,
