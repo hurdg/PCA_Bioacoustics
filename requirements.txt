@@ -1,3 +1,4 @@
+#Rewuirements for DNN_pipeline (TensorFlow) - Use conda enviro
 pandas==1.3.4
 
 tensorflow==2.4.1 
@@ -8,3 +9,11 @@ matplotlib
 
 
 ipykernel #can remove for final app (only for jupyter notebook)
+
+#Rewuirements for OpenSS_pipeline (PyTorch) - Use conda enviro
+opensoundscape
+torch
+pandas
+scikit-learn
+matplotlib
+numpy<2
