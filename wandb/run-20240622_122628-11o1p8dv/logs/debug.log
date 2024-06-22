@@ -1,0 +1,99 @@
+2024-06-22 12:26:29,038 INFO    MainThread:31052 [wandb_setup.py:_flush():76] Current SDK version is 0.17.2
+2024-06-22 12:26:29,039 INFO    MainThread:31052 [wandb_setup.py:_flush():76] Configure stats pid to 31052
+2024-06-22 12:26:29,039 INFO    MainThread:31052 [wandb_setup.py:_flush():76] Loading settings from C:\Users\gavin hurd\.config\wandb\settings
+2024-06-22 12:26:29,039 INFO    MainThread:31052 [wandb_setup.py:_flush():76] Loading settings from \\ban-files-02\Groups\EI Monitoring\Amphibian Acoustic Classifier\Analysis\ETL\wandb\settings
+2024-06-22 12:26:29,040 INFO    MainThread:31052 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-06-22 12:26:29,040 INFO    MainThread:31052 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-06-22 12:26:29,041 INFO    MainThread:31052 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-06-22 12:26:29,042 INFO    MainThread:31052 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-06-22 12:26:29,043 INFO    MainThread:31052 [wandb_init.py:_log_setup():520] Logging user logs to \\ban-files-02\Groups\EI Monitoring\Amphibian Acoustic Classifier\Analysis\ETL\wandb\run-20240622_122628-11o1p8dv\logs\debug.log
+2024-06-22 12:26:29,044 INFO    MainThread:31052 [wandb_init.py:_log_setup():521] Logging internal logs to \\ban-files-02\Groups\EI Monitoring\Amphibian Acoustic Classifier\Analysis\ETL\wandb\run-20240622_122628-11o1p8dv\logs\debug-internal.log
+2024-06-22 12:26:29,045 INFO    MainThread:31052 [wandb_init.py:_jupyter_setup():466] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x000001BA2E8F40D0>
+2024-06-22 12:26:29,045 INFO    MainThread:31052 [wandb_init.py:init():560] calling init triggers
+2024-06-22 12:26:29,046 INFO    MainThread:31052 [wandb_init.py:init():567] wandb.init called with sweep_config: {}
+config: {}
+2024-06-22 12:26:29,046 INFO    MainThread:31052 [wandb_init.py:init():610] starting backend
+2024-06-22 12:26:29,046 INFO    MainThread:31052 [wandb_init.py:init():614] setting up manager
+2024-06-22 12:26:29,068 INFO    MainThread:31052 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn, using: spawn
+2024-06-22 12:26:29,068 INFO    MainThread:31052 [wandb_init.py:init():622] backend started and connected
+2024-06-22 12:26:29,130 INFO    MainThread:31052 [wandb_run.py:_label_probe_notebook():1334] probe notebook
+2024-06-22 12:26:29,132 INFO    MainThread:31052 [wandb_run.py:_label_probe_notebook():1344] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-06-22 12:26:29,133 INFO    MainThread:31052 [wandb_init.py:init():711] updated telemetry
+2024-06-22 12:26:29,343 INFO    MainThread:31052 [wandb_init.py:init():744] communicating run to backend with 90.0 second timeout
+2024-06-22 12:26:29,874 INFO    MainThread:31052 [wandb_run.py:_on_init():2402] communicating current version
+2024-06-22 12:26:30,223 INFO    MainThread:31052 [wandb_run.py:_on_init():2411] got version response 
+2024-06-22 12:26:30,223 INFO    MainThread:31052 [wandb_init.py:init():795] starting run threads in backend
+2024-06-22 12:26:31,144 INFO    MainThread:31052 [wandb_run.py:_console_start():2380] atexit reg
+2024-06-22 12:26:31,144 INFO    MainThread:31052 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2024-06-22 12:26:31,144 INFO    MainThread:31052 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2024-06-22 12:26:31,144 INFO    MainThread:31052 [wandb_run.py:_redirect():2325] Redirects installed.
+2024-06-22 12:26:31,155 INFO    MainThread:31052 [wandb_init.py:init():838] run started, returning control to user process
+2024-06-22 12:26:31,155 INFO    MainThread:31052 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:26:31,155 INFO    MainThread:31052 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:26:31,188 INFO    MainThread:31052 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:26:31,192 INFO    MainThread:31052 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:26:31,192 INFO    MainThread:31052 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:26:32,631 INFO    MainThread:31052 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:26:32,647 INFO    MainThread:31052 [wandb_run.py:_config_callback():1382] config_cb None None {'architecture': 'resnet34', 'sample_duration': 3, 'cuda_device_count': 0, 'mps_available': False, 'classes': ['negative', 'positive'], 'single_target': False, 'opensoundscape_version': '0.10.1', 'l2_regularization': 0.0005, 'learning_rate': 0.01, 'sample_shape': [224, 224, 3]}
+2024-06-22 12:26:32,647 INFO    MainThread:31052 [wandb_run.py:_config_callback():1382] config_cb None None {'epochs': 100, 'batch_size': 32, 'num_workers': 0, 'lr_update_interval': 10, 'lr_cooling_factor': 0.7, 'optimizer_cls': 'torch.optim.sgd.SGD', 'model_save_path': '\\\\ban-files-02\\Groups\\EI Monitoring\\Amphibian Acoustic Classifier\\Analysis\\ETL\\model_training_checkpoints'}
+2024-06-22 12:26:32,655 INFO    MainThread:31052 [wandb_watch.py:watch():51] Watching
+2024-06-22 12:26:35,969 INFO    MainThread:31052 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:26:35,969 INFO    MainThread:31052 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:28:44,103 INFO    MainThread:31052 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:28:44,149 INFO    MainThread:31052 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:28:44,149 INFO    MainThread:31052 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:28:47,354 INFO    MainThread:31052 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:28:47,354 INFO    MainThread:31052 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:28:47,354 INFO    MainThread:31052 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:28:49,267 INFO    MainThread:31052 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:28:49,282 INFO    MainThread:31052 [wandb_run.py:_config_callback():1382] config_cb None None {'architecture': 'resnet34', 'sample_duration': 3, 'cuda_device_count': 0, 'mps_available': False, 'classes': ['negative', 'positive'], 'single_target': False, 'opensoundscape_version': '0.10.1', 'l2_regularization': 0.0005, 'learning_rate': 0.01, 'sample_shape': [224, 224, 3]}
+2024-06-22 12:28:49,289 INFO    MainThread:31052 [wandb_run.py:_config_callback():1382] config_cb None None {'epochs': 100, 'batch_size': 32, 'num_workers': 0, 'lr_update_interval': 10, 'lr_cooling_factor': 0.7, 'optimizer_cls': 'torch.optim.sgd.SGD', 'model_save_path': '\\\\ban-files-02\\Groups\\EI Monitoring\\Amphibian Acoustic Classifier\\Analysis\\ETL\\model_training_checkpoints'}
+2024-06-22 12:28:49,289 INFO    MainThread:31052 [wandb_watch.py:watch():51] Watching
+2024-06-22 12:28:49,940 INFO    MainThread:31052 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:28:49,940 INFO    MainThread:31052 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:30:16,319 INFO    MainThread:31052 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:30:16,319 INFO    MainThread:31052 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:30:16,319 INFO    MainThread:31052 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:30:16,356 INFO    MainThread:31052 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:30:16,395 INFO    MainThread:31052 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:30:16,395 INFO    MainThread:31052 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:30:16,410 INFO    MainThread:31052 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:30:16,437 INFO    MainThread:31052 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:30:16,437 INFO    MainThread:31052 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:30:16,452 INFO    MainThread:31052 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:30:16,470 INFO    MainThread:31052 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:30:16,470 INFO    MainThread:31052 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:30:16,485 INFO    MainThread:31052 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:30:16,501 INFO    MainThread:31052 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:30:16,502 INFO    MainThread:31052 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:30:16,504 INFO    MainThread:31052 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:30:16,988 INFO    MainThread:31052 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:30:16,988 INFO    MainThread:31052 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:30:17,017 INFO    MainThread:31052 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:30:17,017 INFO    MainThread:31052 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:30:17,017 INFO    MainThread:31052 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:30:17,059 INFO    MainThread:31052 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:30:17,112 INFO    MainThread:31052 [wandb_setup.py:_flush():76] Current SDK version is 0.17.2
+2024-06-22 12:30:17,113 INFO    MainThread:31052 [wandb_setup.py:_flush():76] Configure stats pid to 31052
+2024-06-22 12:30:17,114 INFO    MainThread:31052 [wandb_setup.py:_flush():76] Loading settings from C:\Users\gavin hurd\.config\wandb\settings
+2024-06-22 12:30:17,114 INFO    MainThread:31052 [wandb_setup.py:_flush():76] Loading settings from \\ban-files-02\Groups\EI Monitoring\Amphibian Acoustic Classifier\Analysis\ETL\wandb\settings
+2024-06-22 12:30:17,115 INFO    MainThread:31052 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-06-22 12:30:17,117 INFO    MainThread:31052 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-06-22 12:30:17,117 INFO    MainThread:31052 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-06-22 12:30:17,118 INFO    MainThread:31052 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-06-22 12:30:17,120 INFO    MainThread:31052 [wandb_init.py:_log_setup():520] Logging user logs to \\ban-files-02\Groups\EI Monitoring\Amphibian Acoustic Classifier\Analysis\ETL\wandb\run-20240622_123017-4hxbrfxw\logs\debug.log
+2024-06-22 12:30:17,121 INFO    MainThread:31052 [wandb_init.py:_log_setup():521] Logging internal logs to \\ban-files-02\Groups\EI Monitoring\Amphibian Acoustic Classifier\Analysis\ETL\wandb\run-20240622_123017-4hxbrfxw\logs\debug-internal.log
+2024-06-22 12:30:17,122 INFO    MainThread:31052 [wandb_init.py:init():560] calling init triggers
+2024-06-22 12:30:17,122 INFO    MainThread:31052 [wandb_init.py:init():567] wandb.init called with sweep_config: {}
+config: {}
+2024-06-22 12:30:17,122 INFO    MainThread:31052 [wandb_init.py:init():585] re-initializing run, found existing run on stack: 11o1p8dv
+2024-06-22 12:30:17,129 INFO    MainThread:31052 [wandb_run.py:_finish():2109] finishing run pca_bioacoustics/bioacoustics_model/11o1p8dv
+2024-06-22 12:30:17,129 INFO    MainThread:31052 [jupyter.py:save_history():444] not saving jupyter history
+2024-06-22 12:30:17,130 INFO    MainThread:31052 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:30:17,131 INFO    MainThread:31052 [wandb_init.py:_jupyter_teardown():448] cleaning up jupyter logic
+2024-06-22 12:30:17,132 INFO    MainThread:31052 [wandb_run.py:_atexit_cleanup():2349] got exitcode: 0
+2024-06-22 12:30:17,133 INFO    MainThread:31052 [wandb_run.py:_restore():2332] restore
+2024-06-22 12:30:17,134 INFO    MainThread:31052 [wandb_run.py:_restore():2338] restore done
+2024-06-22 12:30:22,499 INFO    MainThread:31052 [wandb_run.py:_footer_history_summary_info():3988] rendering history
+2024-06-22 12:30:22,500 INFO    MainThread:31052 [wandb_run.py:_footer_history_summary_info():4020] rendering summary
+2024-06-22 12:30:22,528 INFO    MainThread:31052 [wandb_run.py:_footer_sync_info():3947] logging synced files

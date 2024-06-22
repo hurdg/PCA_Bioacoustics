@@ -1,0 +1,56 @@
+{
+    "os": "Windows-10-10.0.19045-SP0",
+    "python": "3.10.0",
+    "heartbeatAt": "2024-06-22T18:26:30.348247",
+    "startedAt": "2024-06-22T18:26:28.999405",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "<python with no main file>",
+    "codePathLocal": null,
+    "git": {
+        "remote": "https://github.com/hurdg/PCA_Bioacoustics.git",
+        "commit": "1ffe0c34a597c158b08970fff536fca6d8785848"
+    },
+    "email": null,
+    "root": "//ban-files-02/Groups/EI Monitoring/Amphibian Acoustic Classifier/Analysis/ETL",
+    "host": "BAN-SCI-01",
+    "username": "gavin hurd",
+    "executable": "c:\\Users\\gavin hurd\\.conda\\envs\\amphib_pt_remote\\python.exe",
+    "cpu_count": 28,
+    "cpu_count_logical": 56,
+    "cpu_freq": {
+        "current": 2001.0,
+        "min": 0.0,
+        "max": 2001.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2001.0,
+            "min": 0.0,
+            "max": 2001.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 11336.905269622803,
+            "used": 9592.154945373535
+        }
+    },
+    "gpu": "Quadro K2200",
+    "gpu_count": 2,
+    "gpu_devices": [
+        {
+            "name": "Quadro K2200",
+            "memory_total": 4294967296
+        },
+        {
+            "name": "NVIDIA TITAN V",
+            "memory_total": 12884901888
+        }
+    ],
+    "memory": {
+        "total": 255.91709899902344
+    }
+}

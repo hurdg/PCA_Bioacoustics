@@ -1,0 +1,74 @@
+2024-06-22 12:16:02,087 INFO    MainThread:30732 [wandb_setup.py:_flush():76] Current SDK version is 0.17.2
+2024-06-22 12:16:02,088 INFO    MainThread:30732 [wandb_setup.py:_flush():76] Configure stats pid to 30732
+2024-06-22 12:16:02,088 INFO    MainThread:30732 [wandb_setup.py:_flush():76] Loading settings from C:\Users\gavin hurd\.config\wandb\settings
+2024-06-22 12:16:02,088 INFO    MainThread:30732 [wandb_setup.py:_flush():76] Loading settings from \\ban-files-02\Groups\EI Monitoring\Amphibian Acoustic Classifier\Analysis\ETL\wandb\settings
+2024-06-22 12:16:02,089 INFO    MainThread:30732 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-06-22 12:16:02,089 INFO    MainThread:30732 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-06-22 12:16:02,091 INFO    MainThread:30732 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-06-22 12:16:02,091 INFO    MainThread:30732 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-06-22 12:16:02,093 INFO    MainThread:30732 [wandb_init.py:_log_setup():520] Logging user logs to \\ban-files-02\Groups\EI Monitoring\Amphibian Acoustic Classifier\Analysis\ETL\wandb\run-20240622_121602-ob11ldol\logs\debug.log
+2024-06-22 12:16:02,094 INFO    MainThread:30732 [wandb_init.py:_log_setup():521] Logging internal logs to \\ban-files-02\Groups\EI Monitoring\Amphibian Acoustic Classifier\Analysis\ETL\wandb\run-20240622_121602-ob11ldol\logs\debug-internal.log
+2024-06-22 12:16:02,094 INFO    MainThread:30732 [wandb_init.py:_jupyter_setup():466] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x00000185009240D0>
+2024-06-22 12:16:02,095 INFO    MainThread:30732 [wandb_init.py:init():560] calling init triggers
+2024-06-22 12:16:02,095 INFO    MainThread:30732 [wandb_init.py:init():567] wandb.init called with sweep_config: {}
+config: {}
+2024-06-22 12:16:02,096 INFO    MainThread:30732 [wandb_init.py:init():610] starting backend
+2024-06-22 12:16:02,096 INFO    MainThread:30732 [wandb_init.py:init():614] setting up manager
+2024-06-22 12:16:02,115 INFO    MainThread:30732 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn, using: spawn
+2024-06-22 12:16:02,115 INFO    MainThread:30732 [wandb_init.py:init():622] backend started and connected
+2024-06-22 12:16:02,177 INFO    MainThread:30732 [wandb_run.py:_label_probe_notebook():1334] probe notebook
+2024-06-22 12:16:02,177 INFO    MainThread:30732 [wandb_run.py:_label_probe_notebook():1344] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-06-22 12:16:02,177 INFO    MainThread:30732 [wandb_init.py:init():711] updated telemetry
+2024-06-22 12:16:02,364 INFO    MainThread:30732 [wandb_init.py:init():744] communicating run to backend with 90.0 second timeout
+2024-06-22 12:16:02,864 INFO    MainThread:30732 [wandb_run.py:_on_init():2402] communicating current version
+2024-06-22 12:16:03,254 INFO    MainThread:30732 [wandb_run.py:_on_init():2411] got version response 
+2024-06-22 12:16:03,254 INFO    MainThread:30732 [wandb_init.py:init():795] starting run threads in backend
+2024-06-22 12:16:04,161 INFO    MainThread:30732 [wandb_run.py:_console_start():2380] atexit reg
+2024-06-22 12:16:04,161 INFO    MainThread:30732 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2024-06-22 12:16:04,161 INFO    MainThread:30732 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2024-06-22 12:16:04,161 INFO    MainThread:30732 [wandb_run.py:_redirect():2325] Redirects installed.
+2024-06-22 12:16:04,181 INFO    MainThread:30732 [wandb_init.py:init():838] run started, returning control to user process
+2024-06-22 12:16:04,181 INFO    MainThread:30732 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:16:04,181 INFO    MainThread:30732 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:16:12,255 INFO    MainThread:30732 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:16:12,255 INFO    MainThread:30732 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:16:12,255 INFO    MainThread:30732 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:16:20,163 INFO    MainThread:30732 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:16:20,164 INFO    MainThread:30732 [wandb_run.py:_config_callback():1382] config_cb None None {'architecture': 'resnet34', 'sample_duration': 3, 'cuda_device_count': 0, 'mps_available': False, 'classes': ['negative', 'positive'], 'single_target': False, 'opensoundscape_version': '0.10.1', 'l2_regularization': 0.0005, 'learning_rate': 0.01, 'sample_shape': [224, 224, 3]}
+2024-06-22 12:16:20,164 INFO    MainThread:30732 [wandb_run.py:_config_callback():1382] config_cb None None {'epochs': 2, 'batch_size': 64, 'num_workers': 4, 'lr_update_interval': 10, 'lr_cooling_factor': 0.7, 'optimizer_cls': 'torch.optim.sgd.SGD', 'model_save_path': '\\\\ban-files-02\\Groups\\EI Monitoring\\Amphibian Acoustic Classifier\\Analysis\\ETL\\model_training_checkpoints'}
+2024-06-22 12:16:20,164 INFO    MainThread:30732 [wandb_watch.py:watch():51] Watching
+2024-06-22 12:16:23,520 INFO    MainThread:30732 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:16:23,520 INFO    MainThread:30732 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:16:49,474 INFO    MainThread:30732 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:16:49,479 INFO    MainThread:30732 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:16:49,479 INFO    MainThread:30732 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:19:50,530 INFO    MainThread:30732 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:19:50,572 INFO    MainThread:30732 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:19:50,572 INFO    MainThread:30732 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:19:54,847 INFO    MainThread:30732 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:19:54,852 INFO    MainThread:30732 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:19:54,852 INFO    MainThread:30732 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:20:30,236 INFO    MainThread:30732 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:20:30,236 INFO    MainThread:30732 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:20:30,236 INFO    MainThread:30732 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:20:41,211 INFO    MainThread:30732 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:20:41,216 INFO    MainThread:30732 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:20:41,216 INFO    MainThread:30732 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:20:54,504 INFO    MainThread:30732 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:20:54,508 INFO    MainThread:30732 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:20:54,509 INFO    MainThread:30732 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:21:36,916 INFO    MainThread:30732 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:21:36,916 INFO    MainThread:30732 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:21:36,916 INFO    MainThread:30732 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:21:41,634 INFO    MainThread:30732 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:21:41,634 INFO    MainThread:30732 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:21:41,634 INFO    MainThread:30732 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:21:48,896 INFO    MainThread:30732 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:21:48,908 INFO    MainThread:30732 [wandb_run.py:_config_callback():1382] config_cb None None {'architecture': 'resnet34', 'sample_duration': 3, 'cuda_device_count': 0, 'mps_available': False, 'classes': ['negative', 'positive'], 'single_target': False, 'opensoundscape_version': '0.10.1', 'l2_regularization': 0.0005, 'learning_rate': 0.01, 'sample_shape': [224, 224, 3]}
+2024-06-22 12:21:48,919 INFO    MainThread:30732 [wandb_run.py:_config_callback():1382] config_cb None None {'epochs': 100, 'batch_size': 64, 'num_workers': 4, 'lr_update_interval': 10, 'lr_cooling_factor': 0.7, 'optimizer_cls': 'torch.optim.sgd.SGD', 'model_save_path': '\\\\ban-files-02\\Groups\\EI Monitoring\\Amphibian Acoustic Classifier\\Analysis\\ETL\\model_training_checkpoints'}
+2024-06-22 12:21:48,919 INFO    MainThread:30732 [wandb_watch.py:watch():51] Watching
+2024-06-22 12:21:49,580 INFO    MainThread:30732 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:21:49,580 INFO    MainThread:30732 [wandb_init.py:_pause_backend():431] pausing backend
+2024-06-22 12:22:59,762 INFO    MainThread:30732 [wandb_init.py:_resume_backend():436] resuming backend
+2024-06-22 12:22:59,795 INFO    MainThread:30732 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-06-22 12:22:59,795 INFO    MainThread:30732 [wandb_init.py:_pause_backend():431] pausing backend

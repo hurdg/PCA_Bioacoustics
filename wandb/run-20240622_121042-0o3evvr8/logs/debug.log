@@ -1,0 +1,31 @@
+2024-06-22 12:10:42,108 INFO    MainThread:14236 [wandb_setup.py:_flush():76] Configure stats pid to 14236
+2024-06-22 12:10:42,109 INFO    MainThread:14236 [wandb_setup.py:_flush():76] Loading settings from C:\Users\gavin hurd\.config\wandb\settings
+2024-06-22 12:10:42,109 INFO    MainThread:14236 [wandb_setup.py:_flush():76] Loading settings from \\ban-files-02\Groups\EI Monitoring\Amphibian Acoustic Classifier\Analysis\ETL\wandb\settings
+2024-06-22 12:10:42,110 INFO    MainThread:14236 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-06-22 12:10:42,110 INFO    MainThread:14236 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-06-22 12:10:42,111 INFO    MainThread:14236 [wandb_init.py:_log_setup():506] Logging user logs to \\ban-files-02\Groups\EI Monitoring\Amphibian Acoustic Classifier\Analysis\ETL\wandb\run-20240622_121042-0o3evvr8\logs\debug.log
+2024-06-22 12:10:42,112 INFO    MainThread:14236 [wandb_init.py:_log_setup():507] Logging internal logs to \\ban-files-02\Groups\EI Monitoring\Amphibian Acoustic Classifier\Analysis\ETL\wandb\run-20240622_121042-0o3evvr8\logs\debug-internal.log
+2024-06-22 12:10:42,112 INFO    MainThread:14236 [wandb_init.py:_jupyter_setup():452] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x000001C8D1945810>
+2024-06-22 12:10:42,114 INFO    MainThread:14236 [wandb_init.py:init():546] calling init triggers
+2024-06-22 12:10:42,115 INFO    MainThread:14236 [wandb_init.py:init():552] wandb.init called with sweep_config: {}
+config: {}
+2024-06-22 12:10:42,115 INFO    MainThread:14236 [wandb_init.py:init():602] starting backend
+2024-06-22 12:10:42,116 INFO    MainThread:14236 [wandb_init.py:init():606] setting up manager
+2024-06-22 12:10:42,133 INFO    MainThread:14236 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=spawn, using: spawn
+2024-06-22 12:10:42,163 INFO    MainThread:14236 [wandb_init.py:init():613] backend started and connected
+2024-06-22 12:10:42,189 INFO    MainThread:14236 [wandb_run.py:_label_probe_notebook():1202] probe notebook
+2024-06-22 12:10:42,191 INFO    MainThread:14236 [wandb_run.py:_label_probe_notebook():1212] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-06-22 12:10:42,191 INFO    MainThread:14236 [wandb_init.py:init():701] updated telemetry
+2024-06-22 12:10:42,416 INFO    MainThread:14236 [wandb_init.py:init():741] communicating run to backend with 60.0 second timeout
+2024-06-22 12:10:43,010 INFO    MainThread:14236 [wandb_run.py:_on_init():2131] communicating current version
+2024-06-22 12:10:43,370 INFO    MainThread:14236 [wandb_run.py:_on_init():2140] got version response upgrade_message: "wandb version 0.17.2 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-06-22 12:10:43,370 INFO    MainThread:14236 [wandb_init.py:init():789] starting run threads in backend
+2024-06-22 12:10:44,142 INFO    MainThread:14236 [wandb_run.py:_console_start():2112] atexit reg
+2024-06-22 12:10:44,142 INFO    MainThread:14236 [wandb_run.py:_redirect():1967] redirect: SettingsConsole.WRAP_RAW
+2024-06-22 12:10:44,142 INFO    MainThread:14236 [wandb_run.py:_redirect():2032] Wrapping output streams.
+2024-06-22 12:10:44,142 INFO    MainThread:14236 [wandb_run.py:_redirect():2057] Redirects installed.
+2024-06-22 12:10:44,142 INFO    MainThread:14236 [wandb_init.py:init():831] run started, returning control to user process
+2024-06-22 12:11:15,795 INFO    MainThread:14236 [wandb_run.py:_config_callback():1249] config_cb None None {'architecture': 'resnet34', 'sample_duration': 3, 'cuda_device_count': 0, 'mps_available': False, 'classes': ['negative', 'positive'], 'single_target': False, 'opensoundscape_version': '0.10.1', 'l2_regularization': 0.0005, 'learning_rate': 0.01, 'sample_shape': [224, 224, 3]}
+2024-06-22 12:11:15,809 INFO    MainThread:14236 [wandb_run.py:_config_callback():1249] config_cb None None {'epochs': 2, 'batch_size': 64, 'num_workers': 4, 'lr_update_interval': 10, 'lr_cooling_factor': 0.7, 'optimizer_cls': 'torch.optim.sgd.SGD', 'model_save_path': '\\\\ban-files-02\\Groups\\EI Monitoring\\Amphibian Acoustic Classifier\\Analysis\\ETL\\model_training_checkpoints'}
+2024-06-22 12:11:15,809 INFO    MainThread:14236 [wandb_watch.py:watch():51] Watching
