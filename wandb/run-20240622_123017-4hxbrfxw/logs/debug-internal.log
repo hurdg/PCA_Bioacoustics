@@ -114,3 +114,9 @@ FileNotFoundError: [WinError 2] The system cannot find the file specified
 2024-06-22 12:31:10,262 DEBUG   HandlerThread:14396 [handler.py:handle_request():158] handle_request: stop_status
 2024-06-22 12:31:10,263 DEBUG   SenderThread:14396 [sender.py:send_request():406] send_request: stop_status
 2024-06-22 12:31:10,726 DEBUG   HandlerThread:14396 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 12:31:11,733 DEBUG   HandlerThread:14396 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 12:31:12,739 DEBUG   HandlerThread:14396 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 12:31:13,434 DEBUG   HandlerThread:14396 [handler.py:handle_request():158] handle_request: status_report
+2024-06-22 12:31:13,753 DEBUG   HandlerThread:14396 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 12:31:14,761 DEBUG   HandlerThread:14396 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 12:31:15,763 DEBUG   HandlerThread:14396 [handler.py:handle_request():158] handle_request: internal_messages

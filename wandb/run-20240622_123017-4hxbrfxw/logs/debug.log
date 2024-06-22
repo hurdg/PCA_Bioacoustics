@@ -33,3 +33,11 @@ config: {}
 2024-06-22 12:30:24,002 INFO    MainThread:31052 [wandb_run.py:_on_init():2402] communicating current version
 2024-06-22 12:30:24,380 INFO    MainThread:31052 [wandb_run.py:_on_init():2411] got version response 
 2024-06-22 12:30:24,380 INFO    MainThread:31052 [wandb_init.py:init():795] starting run threads in backend
+2024-06-22 12:30:25,200 INFO    MainThread:31052 [wandb_run.py:_console_start():2380] atexit reg
+2024-06-22 12:30:25,200 INFO    MainThread:31052 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2024-06-22 12:30:25,200 INFO    MainThread:31052 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2024-06-22 12:30:25,216 INFO    MainThread:31052 [wandb_run.py:_redirect():2325] Redirects installed.
+2024-06-22 12:30:25,218 INFO    MainThread:31052 [wandb_init.py:init():838] run started, returning control to user process
+2024-06-22 12:30:29,516 INFO    MainThread:31052 [wandb_run.py:_config_callback():1382] config_cb None None {'architecture': 'resnet34', 'sample_duration': 3, 'cuda_device_count': 0, 'mps_available': False, 'classes': ['negative', 'positive'], 'single_target': False, 'opensoundscape_version': '0.10.1', 'l2_regularization': 0.0005, 'learning_rate': 0.01, 'sample_shape': [224, 224, 3]}
+2024-06-22 12:30:29,530 INFO    MainThread:31052 [wandb_run.py:_config_callback():1382] config_cb None None {'epochs': 100, 'batch_size': 32, 'num_workers': 0, 'lr_update_interval': 10, 'lr_cooling_factor': 0.7, 'optimizer_cls': 'torch.optim.sgd.SGD', 'model_save_path': '\\\\ban-files-02\\Groups\\EI Monitoring\\Amphibian Acoustic Classifier\\Analysis\\ETL\\model_training_checkpoints'}
+2024-06-22 12:30:29,530 INFO    MainThread:31052 [wandb_watch.py:watch():51] Watching
